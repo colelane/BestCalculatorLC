@@ -52,6 +52,8 @@ Module BestCalculatorLC
                 Console.WriteLine(splitstr1 + splitstr3 * splitstr5)
             ElseIf splitstr2 = "+" And splitstr4 = "/" Then
                 Console.WriteLine(splitstr1 + splitstr3 / splitstr5)
+            ElseIf splitstr2 = "+" And splitstr4 = "^" Then
+                Console.WriteLine(splitstr1 + splitstr3 ^ splitstr5)
             End If
 
             If splitstr2 = "-" And splitstr4 = "+" Then
@@ -62,6 +64,8 @@ Module BestCalculatorLC
                 Console.WriteLine(splitstr1 - splitstr3 * splitstr5)
             ElseIf splitstr2 = "-" And splitstr4 = "/" Then
                 Console.WriteLine(splitstr1 - splitstr3 / splitstr5)
+            ElseIf splitstr2 = "-" And splitstr4 = "^" Then
+                Console.WriteLine(splitstr1 - splitstr3 ^ splitstr5)
             End If
 
             If splitstr2 = "*" And splitstr4 = "+" Then
@@ -72,6 +76,8 @@ Module BestCalculatorLC
                 Console.WriteLine(splitstr1 * splitstr3 * splitstr5)
             ElseIf splitstr2 = "*" And splitstr4 = "/" Then
                 Console.WriteLine(splitstr1 * splitstr3 / splitstr5)
+            ElseIf splitstr2 = "*" And splitstr4 = "^" Then
+                Console.WriteLine(splitstr1 * splitstr3 ^ splitstr5)
             End If
 
             If splitstr2 = "/" And splitstr4 = "+" Then
@@ -82,8 +88,22 @@ Module BestCalculatorLC
                 Console.WriteLine(splitstr1 / splitstr3 * splitstr5)
             ElseIf splitstr2 = "/" And splitstr4 = "/" Then
                 Console.WriteLine(splitstr1 / splitstr3 / splitstr5)
+            ElseIf splitstr2 = "/" And splitstr4 = "^" Then
+                Console.WriteLine(splitstr1 / splitstr3 ^ splitstr5)
             End If
 
+            If splitstr2 = "^" And splitstr4 = "+" Then
+                Console.WriteLine(splitstr1 ^ splitstr3 + splitstr5)
+            ElseIf splitstr2 = "^" And splitstr4 = "-" Then
+                Console.WriteLine(splitstr1 ^ splitstr3 - splitstr5)
+            ElseIf splitstr2 = "^" And splitstr4 = "*" Then
+                Console.WriteLine(splitstr1 ^ splitstr3 * splitstr5)
+            ElseIf splitstr2 = "^" And splitstr4 = "/" Then
+                Console.WriteLine(splitstr1 ^ splitstr3 / splitstr5)
+            ElseIf splitstr2 = "^" And splitstr4 = "^" Then
+                Console.WriteLine(splitstr1 ^ splitstr3 ^ splitstr5)
+            End If
+            'two numbers only.
             If splitstr2 = "+" And splitstr4 = Nothing Then
                 Console.WriteLine(splitstr1 + splitstr3)
             ElseIf splitstr2 = "-" And splitstr4 = Nothing Then
@@ -92,6 +112,8 @@ Module BestCalculatorLC
                 Console.WriteLine(splitstr1 * splitstr3)
             ElseIf splitstr2 = "/" And splitstr4 = Nothing Then
                 Console.WriteLine(splitstr1 / splitstr3)
+            ElseIf splitstr2 = "^" And splitstr4 = Nothing Then
+                Console.WriteLine(splitstr1 ^ splitstr3)
             End If
 
 
