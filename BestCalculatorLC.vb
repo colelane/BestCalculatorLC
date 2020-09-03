@@ -37,7 +37,7 @@ Module BestCalculatorLC
                 Catch
                     goodData = False
                 End Try
-                If splitstr4 > CStr(0) Or splitstr4 <= CStr(0) And splitstr5 = Nothing Then
+                If splitstr4 > CStr(Nothing) And splitstr5 = Nothing Then
                     goodData = False
                 End If
                 If goodData = False Then Console.WriteLine("Example format: # + # / #")
