@@ -9,31 +9,39 @@ Module BestCalculatorLC
         Dim splitstr1 As Integer
         Dim splitstr2 As String
         Dim splitstr3 As Integer
+        Dim goodData As Boolean
 
         Do
-            str = Console.ReadLine()
+            Do
+                Try
+                    str = Console.ReadLine()
+                    spl = Split(str, " ")
+                    splitstr1 = CInt(spl(0))
+                    splitstr2 = CStr(spl(1))
+                    splitstr3 = CInt(spl(2))
+                    goodData = True
+                Catch
+                    Console.WriteLine("Example format: # + #")
+                    goodData = False
+                End Try
+            Loop Until goodData = True
 
-            spl = Split(str, " ")
-
-
-            splitstr1 = CInt(spl(0))
-            splitstr2 = CStr(spl(1))
-            splitstr3 = CInt(spl(2))
 
             If splitstr2 = "+" Then
-                Console.WriteLine(splitstr1 + splitstr3)
-            ElseIf splitstr2 = "-" Then
-                Console.WriteLine(splitstr1 - splitstr3)
-            ElseIf splitstr2 = "*" Then
-                Console.WriteLine(splitstr1 * splitstr3)
-            ElseIf splitstr2 = "/" Then
-                Console.WriteLine(splitstr1 / splitstr3)
-            End If
+                        Console.WriteLine(splitstr1 + splitstr3)
+                    ElseIf splitstr2 = "-" Then
+                        Console.WriteLine(splitstr1 - splitstr3)
+                    ElseIf splitstr2 = "*" Then
+                        Console.WriteLine(splitstr1 * splitstr3)
+                    ElseIf splitstr2 = "/" Then
+                        Console.WriteLine(splitstr1 / splitstr3)
+                    End If
+
 
             Console.ReadLine()
-            Console.Clear()
-        Loop
+                Console.Clear()
 
+            Loop
     End Sub
 
 End Module
