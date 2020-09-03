@@ -14,6 +14,7 @@ Module BestCalculatorLC
         Dim goodData As Boolean
 
         Do
+            Console.WriteLine("This is a calculator")
             Do
                 Try
                     str = Console.ReadLine()
@@ -23,18 +24,24 @@ Module BestCalculatorLC
                     splitstr3 = CInt(spl(2))
                     Try
                         splitstr4 = CStr(spl(3))
-                        splitstr5 = CInt(spl(4))
                     Catch
                         splitstr4 = Nothing
+                    End Try
+                    Try
+                        splitstr5 = CInt(spl(4))
+                    Catch
                         splitstr5 = Nothing
                     End Try
 
                     goodData = True
                 Catch
-
-                    Console.WriteLine("Example format: # + #")
                     goodData = False
                 End Try
+                If splitstr4 > CStr(0) Or splitstr4 <= CStr(0) And splitstr5 = Nothing Then
+                    goodData = False
+                End If
+                If goodData = False Then Console.WriteLine("Example format: # + # / #")
+
             Loop Until goodData = True
 
             If splitstr2 = "+" And splitstr4 = "+" Then
@@ -44,7 +51,7 @@ Module BestCalculatorLC
             ElseIf splitstr2 = "+" And splitstr4 = "*" Then
                 Console.WriteLine(splitstr1 + splitstr3 * splitstr5)
             ElseIf splitstr2 = "+" And splitstr4 = "/" Then
-                Console.WriteLine(splitstr1 + splitstr3 + splitstr5)
+                Console.WriteLine(splitstr1 + splitstr3 / splitstr5)
             End If
 
             If splitstr2 = "-" And splitstr4 = "+" Then
@@ -54,7 +61,7 @@ Module BestCalculatorLC
             ElseIf splitstr2 = "-" And splitstr4 = "*" Then
                 Console.WriteLine(splitstr1 - splitstr3 * splitstr5)
             ElseIf splitstr2 = "-" And splitstr4 = "/" Then
-                Console.WriteLine(splitstr1 - splitstr3 + splitstr5)
+                Console.WriteLine(splitstr1 - splitstr3 / splitstr5)
             End If
 
             If splitstr2 = "*" And splitstr4 = "+" Then
@@ -64,7 +71,7 @@ Module BestCalculatorLC
             ElseIf splitstr2 = "*" And splitstr4 = "*" Then
                 Console.WriteLine(splitstr1 * splitstr3 * splitstr5)
             ElseIf splitstr2 = "*" And splitstr4 = "/" Then
-                Console.WriteLine(splitstr1 * splitstr3 + splitstr5)
+                Console.WriteLine(splitstr1 * splitstr3 / splitstr5)
             End If
 
             If splitstr2 = "/" And splitstr4 = "+" Then
@@ -74,7 +81,7 @@ Module BestCalculatorLC
             ElseIf splitstr2 = "/" And splitstr4 = "*" Then
                 Console.WriteLine(splitstr1 / splitstr3 * splitstr5)
             ElseIf splitstr2 = "/" And splitstr4 = "/" Then
-                Console.WriteLine(splitstr1 / splitstr3 + splitstr5)
+                Console.WriteLine(splitstr1 / splitstr3 / splitstr5)
             End If
 
             If splitstr2 = "+" And splitstr4 = Nothing Then
@@ -90,9 +97,9 @@ Module BestCalculatorLC
 
 
             Console.ReadLine()
-                Console.Clear()
+            Console.Clear()
 
-            Loop
+        Loop
     End Sub
 
 End Module
