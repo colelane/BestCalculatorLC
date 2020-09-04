@@ -1,6 +1,12 @@
 ﻿Option Strict On
 Option Explicit On
 Option Compare Text
+
+'Lane Coleman
+'RCET0265
+'Fall 2020
+'BestCalculatorLC
+'https://github.com/colelane/BestCalculatorLC.git
 Module BestCalculatorLC
 
     Sub Main()
