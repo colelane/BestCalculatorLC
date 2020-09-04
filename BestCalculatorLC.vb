@@ -16,12 +16,16 @@ Module BestCalculatorLC
         Console.WriteLine("This is a calculator")
         Do
             Do
+
                 Try
                     str = Console.ReadLine()
                     spl = Split(str, " ")
                     splitstr1 = CDbl(spl(0))
                     splitstr2 = CStr(spl(1))
                     splitstr3 = CDbl(spl(2))
+                    'The above, starting at str, the line that is input by the user is split up and inserted into an array.
+                    'After entering the array in individual pieces, the pieces can be called up and analyzed as numbers
+                    'or as a string.  The strings are the operators that are used later on.
                     Try
                         splitstr4 = CStr(spl(3))
                     Catch
@@ -38,9 +42,12 @@ Module BestCalculatorLC
                     goodData = False
                 End Try
                 If splitstr4 > CStr(Nothing) And splitstr5 = Nothing Then
+                    'this if statement is there to catch the condition: 15 + 15 +10.   where the second + would be splitstr4
+                    'but the 10 is misplaced so that nothing shows up in splitstr5.  
                     goodData = False
                 End If
                 If goodData = False Then Console.WriteLine("Example format: # + # / #")
+                'If any of the catches are triggerd, goodData = false so it loops back to the top.
 
             Loop Until goodData = True
             'addition
