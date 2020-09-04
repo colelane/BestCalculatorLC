@@ -13,7 +13,7 @@ Module BestCalculatorLC
         Dim splitstr5 As Double
         Dim goodData As Boolean
 
-        Console.WriteLine("This is a calculator")
+        Console.WriteLine("This is a calculator. Enter only Q to quit at any time")
         Do
             Do
 
@@ -39,6 +39,7 @@ Module BestCalculatorLC
 
                     goodData = True
                 Catch
+                    If str = "q" Then Exit Sub
                     goodData = False
                 End Try
                 If splitstr4 > CStr(Nothing) And splitstr5 = Nothing Then
@@ -46,7 +47,9 @@ Module BestCalculatorLC
                     'but the 10 is misplaced so that nothing shows up in splitstr5.  
                     goodData = False
                 End If
-                If goodData = False Then Console.WriteLine("Example format: # + # / #")
+                If goodData = False Then
+                    Console.WriteLine("Example format: # + # / #")
+                End If
                 'If any of the catches are triggerd, goodData = false so it loops back to the top.
 
             Loop Until goodData = True
