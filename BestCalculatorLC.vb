@@ -45,7 +45,10 @@ Module BestCalculatorLC
 
                     goodData = True
                 Catch
-                    If str = "q" Then Exit Sub
+                    If str = "q" Then
+                        Quit()
+                        Exit Sub
+                    End If
                     goodData = False
                 End Try
                 If splitstr4 > CStr(Nothing) And splitstr5 = Nothing Then
@@ -139,5 +142,14 @@ Module BestCalculatorLC
 
         Loop
     End Sub
+    Sub Quit()
+        Console.WriteLine("You entered Q." & vbNewLine &
+            "Have a nice day!" & vbNewLine &
+            "Press Enter to Exit")
+
+        Console.ReadLine()
+
+    End Sub
+
 
 End Module
