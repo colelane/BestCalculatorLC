@@ -11,7 +11,7 @@ Module BestCalculatorLC
 
     Sub Main()
         Dim str As String
-        Dim spl(5) As Object
+        Dim spl(4) As String
         Dim splitstr1 As Double
         Dim splitstr2 As String
         Dim splitstr3 As Double
@@ -27,13 +27,13 @@ Module BestCalculatorLC
                     str = Console.ReadLine()
                     spl = Split(str, " ")
                     splitstr1 = CDbl(spl(0))
-                    splitstr2 = CStr(spl(1))
+                    splitstr2 = (spl(1))
                     splitstr3 = CDbl(spl(2))
                     'The above, starting at str, the line that is input by the user is split up and inserted into an array.
                     'After entering the array in individual pieces, the pieces can be called up and analyzed as numbers
                     'or as a string.  The strings are the operators that are used later on.
                     Try
-                        splitstr4 = CStr(spl(3))
+                        splitstr4 = (spl(3))
                     Catch
                         splitstr4 = Nothing
                     End Try
@@ -51,7 +51,7 @@ Module BestCalculatorLC
                     End If
                     goodData = False
                 End Try
-                If splitstr4 > CStr(Nothing) And splitstr5 = Nothing Then
+                If splitstr4 > Nothing And splitstr5 = Nothing Then
                     'this if statement is there to catch the condition: 15 + 15 +10.   where the second + would be splitstr4
                     'but the 10 is misplaced so that nothing shows up in splitstr5.  
                     goodData = False
@@ -60,6 +60,21 @@ Module BestCalculatorLC
                     Console.WriteLine("Example format: # + # / #")
                 End If
                 'If any of the catches are triggerd, goodData = false so it loops back to the top.
+
+                If splitstr2 = "+" Or splitstr2 = "-" Or splitstr2 = "*" Or splitstr2 = "/" Then
+                    goodData = True
+                Else
+                    goodData = False
+                    Console.WriteLine("Example format: # + # / #")
+                End If
+
+                If splitstr4 = "+" Or splitstr4 = "-" Or splitstr4 = "*" Or splitstr4 = "/" Or splitstr4 = Nothing Then
+                    goodData = True
+                Else
+                    goodData = False
+                    Console.WriteLine("Example format: # + # / #")
+                End If
+
 
             Loop Until goodData = True
             'addition
